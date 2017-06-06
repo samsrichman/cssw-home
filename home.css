@@ -1,0 +1,164 @@
+body, html {
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    overflow: hidden;
+    height:100%;
+
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+/*.vidcontainer{
+	position:relative;
+	text-align: center;
+}*/
+video {
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover; 
+}
+
+
+img {
+	width: 500px;
+	height:auto;
+	position: absolute;
+	left:0px;
+	top:0px;
+	z-index: 10;
+	margin:25px;
+}
+
+/*Inlcudes transition, see .active*/
+ul {
+	position: absolute;
+	right:0px;
+	top:0px;
+	padding:0px;
+	transition: right .4s;
+}
+
+ul li {
+	list-style-type: none;
+    text-align: center;
+	background: rgba(0,103,172,.5);
+	color:white;
+	padding:25px;
+	margin:25px;
+	max-width: 150px;
+	height: 75px;
+}
+
+/*Temp fix - adjust height of twoline main button text*/
+ul li.twoline{
+	padding:19px 25px;
+}
+
+/*Size and position of nav menu*/
+ul.navmenu {
+	right:-300px;
+	width: 300px;
+	padding-top: 0px;
+	margin-top:0px;
+	min-height:1000px;
+	background: rgba(0,103,172,.5);
+
+}
+
+/*Nav menu item sizing*/
+.navmenu li{
+	padding:25px 65px;
+	margin:25px 0px;
+	max-width: 400px;
+	background:none;
+	border-bottom: 1px solid rgba(0,103,172,.5);
+	height:auto;
+}
+
+/*first item moves down*/
+.navmenu li#itemone {
+	margin-top: 25px;
+}
+
+/*link styling*/
+a ul li, a:hover, a:focus{
+	color:white;
+	text-decoration: none;
+	background: rgba(0,103,172,.9);
+}
+
+/*highlight hovered items in navmenu*/
+ul li:hover, .navmenu li:hover, ul li:focus, .navmenu li:focus, .menu-on {
+	background: rgba(0,103,172,.9);
+}
+
+.nav-submenu a, .nav-submenu li{
+	color:rgba(255,255,255,.7);
+	background: transparent;
+
+}
+.nav-submenu a:hover, .navmenu li a, .nav-submenu li:hover{
+	color:rgba(255,255,255,1);
+	background: transparent;
+}
+.navmenu li a:hover{
+	color:#B9E0F7;
+	background: transparent;
+
+}
+
+.nav-submenu li {
+	text-transform: none;
+	font-weight: normal;
+	text-align: left;
+	padding:10px 0px !important;
+
+}
+
+/*nav submenu items*/
+.nav-submenu, .nav-submenu li{
+	position:relative;
+	display: block;
+	border:none;
+	background:rgba(255,255,255.5);
+	padding:0px;
+	margin:0px;
+	width: auto;
+	height: auto;
+}
+
+/*Initially hide submenu items until js hover*/
+.nav-submenu{
+	display:none;
+}
+
+hr{
+	max-width: 150px;
+	border-top:2px dashed rgba(255,255,255,.5);
+}
+
+/*reveal nav menu*/
+.active {
+	right:300px;
+	transition: .4s;
+}
+
+@media screen and (max-width: 725px) {
+	#logo{
+		display:none;
+	}
+}
