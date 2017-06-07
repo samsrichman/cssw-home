@@ -74,7 +74,7 @@ ul.navmenu {
 	width: 300px;
 	padding-top: 0px;
 	margin-top:0px;
-	min-height:1000px;
+	min-height:100vh;
 	background: rgba(0,103,172,.5);
 
 }
@@ -82,7 +82,7 @@ ul.navmenu {
 /*Nav menu item sizing*/
 .navmenu li{
 	padding:25px 65px;
-	margin:25px 0px;
+	margin:0px;
 	max-width: 400px;
 	background:none;
 	border-bottom: 1px solid rgba(0,103,172,.5);
@@ -108,8 +108,8 @@ a ul li, a:hover, a:focus{
 .fa {
 	color:white;
     padding: 10px;
-    font-size: 16px;
-    width: 36px;
+    font-size: 20px;
+    width: 40px;
     border-radius: 50%;
     text-align: center;
     text-decoration: none;
@@ -117,7 +117,6 @@ a ul li, a:hover, a:focus{
 
 /* Add a hover effect */
 .fa:hover {
-    color: #B9E0F7;
     background:rgba(0,103,172,.9);
 }
 
