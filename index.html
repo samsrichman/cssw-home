@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!--allows for mobile viewing/zooming. for no zooming, use <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
-<title>
-Columbia School of Social Work</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Columbia School of Social Work</title>
+
 <link rel="shortcut icon" href="http://socialwork.columbia.edu/wp-content/themes/cssw/favicon.ico"/>
 
 <!-- Latest compiled and minified CSS -->
@@ -26,13 +26,14 @@ Columbia School of Social Work</title>
 <body>
 <div class="vidcontainer">
 <video loop autoplay muted playsinline>
-  <source src="movie.mp4" type="video/mp4">
+  <!--JS puts in random movie
+  <source src="movie.mp4" type="video/mp4">-->
   Your browser does not support the video tag.
 </video>
 </div>
-<a href="/cssw-home/index2.html"><img id="logo" src="logo.png" /></a>
+<a href="#"><img id="logo" src="logo.png" /></a>
 <ul id="nav">
-	<a href="#"><li id="menu">Menu</li></a>
+	<a href="#"><li class="menubtn">Menu</li></a>
 	<a href="http://socialwork.columbia.edu/request-information/"><li class='twoline'>Request Info</li></a>
 	<a href="https://apply.ssw.columbia.edu/apply/?_ga=2.71128080.1212356180.1496772524-1435786861.1492542153"><li>Apply</li></a>
 	<a href="https://socialwork.givenow.columbia.edu/?ac=EBHS"><li>Give</li></a>
@@ -90,10 +91,78 @@ Columbia School of Social Work</title>
 	</ul>
 </ul>
 
+<ul id="mobile-nav">
+	<a href="#"><li class="menubtn">Menu</li></a>
+	<ul class="navmenu">
+		<div class="menubtn cancel">&times;</div>
+		<li ><span class='item-expand'>+</span><a href="#">About the School</a>
+			<ul class="nav-submenu">
+				<li><a href="#">Welcome from the Dean</a></li>
+				<li><a href="#">Historical Timeline</a></li>
+				<li><a href="#">Mission</a></li>
+				<li><a href="#">Administration</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</li>
+		<li><span class='item-expand'>+</span><a href="#">Admissions</a>
+			<ul class="nav-submenu">
+				<li><a href="#">7 Steps to a Columbia MSW</a></li>
+				<li><a href="#">Costs &amp; Financial Aid</a></li>
+				<li><a href="#">Online Campus</a></li>
+				<li><a href="#">Admitted Students</a></li>
+			</ul>
+		</li>
+		<li><span class='item-expand'>+</span><a href="#">Academic Programs</a>
+			<ul class="nav-submenu">
+				<li><a href="#">MSW Program</a></li>
+				<li><a href="#">Online MSW Program</a></li>
+				<li><a href="#">Ph.D. Program</a></li>
+				<li><a href="#">Continuing Education</a></li>
+			</ul></li>
+		<li><span class='item-expand'>+</span><a href="#">Faculty &amp; Research</a>
+			<ul class="nav-submenu">
+				<li><a href="#">Faculty</a></li>
+				<li><a href="#">Research Centers &amp; Programs</a></li>
+				<li><a href="#">Books</a></li>
+				<li><a href="#">Openings</a></li>
+			</ul>
+		</li>
+		<li><span class='item-expand'>+</span><a href="#">Resources for...</a>
+			<ul class="nav-submenu">
+				<li><a href="#">Current Students</a></li>
+				<li><a href="#">Field Educators</a></li>
+				<li><a href="#">Alumni</a></li>
+				<li><a href="#">Social Work Professionals</a></li>
+				<li><a href="#">Recruiters</a></li>
+			</ul>
+		</li>
+	</ul>
+</ul>
+
+<ul class="mobile-nav-btns">
+	<a href="http://socialwork.columbia.edu/request-information/"><li class='twoline' id='itemone'>Request Info</li></a>
+	<a href="https://apply.ssw.columbia.edu/apply/?_ga=2.71128080.1212356180.1496772524-1435786861.1492542153"><li>Apply</li></a>
+	<a href="https://socialwork.givenow.columbia.edu/?ac=EBHS"><li>Give</li></a>
+	<hr />
+	<a href="http://socialwork.columbia.edu/news-and-events/"><li>News</li></a>
+	<a href="http://socialwork.columbia.edu/events/"><li>Events</li></a>
+	<div class="social">
+		<a href="#" class="fa fa-facebook"></a>
+		<a href="#" class="fa fa-twitter"></a>
+		<a href="#" class="fa fa-instagram"></a>
+		<a href="#" class="fa fa-youtube"></a>
+	</div>
+</ul>
+
+<div class="container-fluid hide-load" id='#below-the-fold' align="center" style="height:1500px">
+	<div class="row">
+		<h1 class="sect1">More stuff!</h1>
+		<p style="text-transform: none;font-weight: normal">Below the video can go anything: a brief introductory narrative about the school, stats, recently published news and events, etc.</p>
+	</div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="home.js"></script>
-
 </body>
 </html>
