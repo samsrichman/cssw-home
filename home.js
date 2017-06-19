@@ -8,6 +8,45 @@ function randomVid(){
     $video.prepend("<source src='"+vidChoice+"'' type='video/mp4'>");
 }
 
+/*function navMenuItemToggle(){
+	var $itemExp = $('#mobile-nav .navmenu li .item-expand');
+	$itemExp.data('clicked',false);
+	$itemExp.click(function(){
+		tell($(this).data('clicked'))
+		if ($(this).data('clicked') == false) {
+			$(this).html('-');
+			$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
+			$(this).closest("li").siblings().find("[class^='item-expand']").html('+')
+			$(this).data('clicked',true);
+			tell('now it is ' + $(this).data('clicked'));
+		} else {
+			$(this).html('+');
+			$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
+			$(this).closest("li").siblings().find("[class^='item-expand']").data('clicked',true).find("[class^='nav-submenu']").slideToggle();
+			$(this).data('clicked',false)
+			tell('but now it is ' + $(this).data('clicked'))
+		}
+		
+
+
+    	//$(this).closest("li").siblings().find("[class^='nav-submenu']").css({'display':'none'});
+    	//$(this).closest("li").siblings().find("[class^='item-expand']").html($(this).text() == '+' ? '-' : '+')
+    });
+}
+
+function navToggle(){
+	var $itemExp = $('#mobile-nav .navmenu li .item-expand');
+	$itemExp.data('clicked',false);
+	$itemExp.click(function(){
+		//always toggle clicked element on or off
+    	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
+    	//always change clicked element to opposite -/+
+    	$(this).html($(this).text() == '-' ? '+' : '-');
+    	//if another menu is open, slideToggle it and switch - to +
+    });
+}
+*/
+
 $(document).ready(function(){
 	randomVid();
 	//hide content below video
@@ -22,6 +61,8 @@ $(document).ready(function(){
     $('#nav .navmenu li').hover(function(){
     	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
     });
+    //navMenuItemToggle();
+    //navToggle();
     $('#mobile-nav .navmenu li .item-expand').click(function(){
     	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
     	$(this).html($(this).text() == '-' ? '+' : '-');
@@ -30,7 +71,7 @@ $(document).ready(function(){
     });
     $(window).scroll(function(){
 		var $logo = $('#logo')
-		var videoEnd = $video.height() + $video.position().top - $logo.height();
+		var videoEnd = $video.height() + $video.position().top - $logo.height() - 21;
 		var scrollPos = $(window).scrollTop();
 		var hrPos = $video.height() + $video.position().top - $('hr').position().top - 15;
 		var logoBg = $logo.hasClass('logo-bg');
@@ -44,6 +85,11 @@ $(document).ready(function(){
 		} else if (scrollPos < hrPos + 3) {
 			$('hr').css({'border-top':'2px dashed rgba(255,255,255,.5)'})
 		}
+	});
+	$('#carousel-stories').on('slid.bs.carousel', function(){
+		var actionText = $('.carousel-inner .active img').data('action');
+		tell(actionText)
+		$('.carousel-title span').text(actionText + '?')
 	});
 });
 
