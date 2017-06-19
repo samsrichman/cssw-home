@@ -1,0 +1,394 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 1px;
+	font-size: 16px;
+	overflow-x: hidden;
+	height:100%;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+nav{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+video {
+	position: relative;
+	top: 50vh;
+	left: 50vw;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+
+}
+
+#logo {
+	width: 500px;
+	height:auto;
+	position: fixed;
+	left:0px;
+	top:0px;
+	z-index: 10;
+	padding:10px;
+	margin:25px;
+	transition: .2s;
+
+}
+
+/* Add background to logo after scroll */
+.logo-bg {
+	background: rgba(0,103,172,.5);
+}
+
+#nav {
+	display:inline;
+	z-index: 50;
+}
+#mobile-nav, .mobile-nav-btns {
+	display:none;
+	z-index: 50;
+}
+/*Inlcudes transition, see .active*/
+ul {
+	position: fixed;
+	right:0px;
+	top:0px;
+	padding:0px;
+	transition: right .4s;
+}
+
+li {
+	list-style-type: none;
+    text-align: center;
+	background: rgba(0,103,172,.5);
+	color:white;
+	padding:25px;
+	margin:25px;
+	max-width: 150px;
+	height: 75px;
+	transition: .4s;
+}
+
+/*Temp fix - adjust height of twoline main button text*/
+li.twoline{
+	padding:19px 25px;
+}
+
+/*Size and position of nav menu*/
+ul.navmenu {
+	position:absolute;
+	right:-300px;
+	width: 300px;
+	padding-top: 0px;
+	margin-top:0px;
+	min-height:100vh;
+	height:auto;
+	background: rgba(0,103,172,.5);
+	overflow-y: scroll;
+}
+
+
+/*Nav menu item sizing*/
+.navmenu li{
+	padding:25px 65px;
+	margin:0px;
+	max-width: 300px;
+	background:none;
+	border-bottom: 1px solid rgba(0,103,172,.5);
+	height:auto;
+}
+
+/*first item moves down*/
+.navmenu li#itemone {
+	margin-top: 25px;
+}
+
+/*link styling*/
+a ul li, a:hover, a:focus{
+	color:white;
+	text-decoration: none;
+	background: rgba(0,103,172,.9);
+}
+
+/* Style all font awesome icons */
+.social {
+	text-align: center;
+	margin: auto;
+}
+.fa {
+	color:white;
+    padding: 10px;
+    font-size: 14px;
+    width: 34px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    background:rgba(0,103,172,.5);
+}
+
+/* Add a hover effect */
+.fa:hover {
+    background:rgba(0,103,172,.9);
+}
+
+/*highlight hovered items in navmenu*/
+li:hover, li:focus, .menu-on {
+	background: rgba(0,103,172,.9);
+}
+
+.nav-submenu a, .nav-submenu li{
+	color:rgba(255,255,255,.7);
+	background: transparent;
+
+}
+.nav-submenu a:hover, .navmenu li a, .nav-submenu li:hover{
+	color:rgba(255,255,255,1);
+	background: transparent;
+}
+.navmenu li a:hover{
+	color:#B9E0F7;
+	background: transparent;
+
+}
+
+.nav-submenu li {
+	text-transform: none;
+	font-weight: normal;
+	text-align: left;
+	padding:10px 0px !important;
+
+}
+
+/*nav submenu items*/
+.nav-submenu, .nav-submenu li{
+	position:relative;
+	display: block;
+	border:none;
+	background:rgba(255,255,255.5);
+	padding:0px;
+	margin:0px;
+	width: auto;
+	height: auto;
+}
+
+/*Initially hide submenu items until js hover*/
+.nav-submenu{
+	display:none;
+}
+
+hr{
+	max-width: 150px;
+	border-top:2px dashed rgba(255,255,255,.5);
+	transition: .2s
+}
+
+/*reveal nav menu*/
+.active {
+	right:300px;
+	transition: .4s;
+}
+
+/* Hide post-video content until page loaded */
+.hide-load {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 1s;
+}
+
+.cancel {
+	color:white;
+	font-size: 48px;
+	font-weight: normal;
+	line-height: 20px;
+	position:relative;
+	top:15px;
+	right:-90vw;
+	text-align: right;
+	display:inline-block;
+	margin:0px;
+	background: none;
+}
+
+.mobile-nav-btns {
+	position:absolute;
+	top:60px;
+	z-index: 25;
+}
+
+.item-expand {
+	color: white;
+	font-size: 40px;
+	line-height: 15px;
+	font-weight: normal;
+	float:left;
+}
+
+.container-fluid {
+margin:auto;
+padding:50px 250px;
+}
+
+@media screen and (max-width: 768px) {
+	video {
+	position: relative;
+	top: 50vh;
+	left: 50vw;
+	min-width: 100vw;
+	min-height: 100vh;
+	width: auto;
+	height: 100vh;
+	z-index: -100;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+	}
+	#logo{
+		width: 60%;
+		margin:15px;
+	}
+	#nav {
+		display:none;
+	}
+	#mobile-nav,.mobile-nav-btns {
+		display:inline;
+	}
+	ul.navmenu {
+		position:absolute;
+		right:-100vw;
+		width: 100vw;
+		background: rgba(0,103,172,1);
+
+	}
+	.navmenu li{
+		font-size: 14px;
+		padding:20px 35px;
+		margin:0px;
+		max-width: 100vw;
+		height:auto; 
+		background:none;
+		border-bottom: 1px solid #005892;
+	}
+	li:hover, li:focus {
+		background: #005892;
+	}
+	li {
+		font-size: 10px;
+		margin:15px;
+		padding:15px;
+		max-width: 90px;
+		height: auto;
+	}
+	li.menubtn {
+		width:90px;
+	}
+	hr{
+		max-width:90px;
+	}
+	.social{
+		max-width:100px;
+	}
+	.fa {
+		padding: 8px;
+		font-size: 12px;
+		display:inline-block;
+		margin:4px 4px;
+		width: 28px;
+		border-radius: 50%;
+	}
+
+	.active {
+		right:100vw;
+	}
+	@media screen and (max-height: 450px) {
+		li {
+			padding:10px 25px;
+			margin:10px;
+			max-height: 50px;
+		}
+		li.twoline{
+			padding:10px 25px;
+		}
+		hr{
+		margin:4px 10px;
+		}
+		.mobile-nav-btns {
+			top:45px;
+		}
+		#logo{
+		width: 40%;
+		margin:10px;
+		}
+	}
+}
+
+/* BOOTSTRAP CAROUSEL EDITS */
+.carousel{
+	display:block;
+	height:auto;
+	margin:75px auto;
+	overflow: hidden;
+}
+.carousel-inner{
+	min-height:500px;
+	width:auto;
+}
+.carousel img{
+	width:100%
+}
+.carousel-indicators li{
+	height: 12px;
+	width:	12px;
+	margin:0px;
+	padding:0px;
+	border-radius: 50%;
+}
+
+.carousel-title{
+	position:absolute;
+	top:20px;
+	margin-right: 30%;
+	color:white;
+	font-size: 16px;
+	font-weight: bold;
+	text-shadow: 0 1px 2px rgba(0,0,0,.9);
+}
+.carousel-caption {
+	display:none;
+	text-align: left;
+	margin-right:15%;
+	bottom:20px;
+	text-shadow: 1px 1px 5px rgba(0,0,0,.9);
+}
+.carousel-title, .carousel-caption {
+	left:10%;
+}
+
+.carousel-caption a{
+	display:table;
+	background:rgba(0,103,172,.5);
+	color:white;
+	font-weight:bold;
+	text-shadow: none;
+	padding:10px;
+}
+@media screen and (min-width: 768px) {
+.carousel-caption {
+	display:inline;
+	font-size:18px;
+	margin-right:30%;
+}
+.carousel-title{
+	font-size: 36px;
+	}
+}
