@@ -7,69 +7,17 @@ function randomVid(){
     var vidChoice = "movie" + Math.round(Math.random()+1) + ".mp4";
     $video.prepend("<source src='"+vidChoice+"'' type='video/mp4'>");
 }
-
-/*function navMenuItemToggle(){
-	var $itemExp = $('#mobile-nav .navmenu li .item-expand');
-	$itemExp.data('clicked',false);
-	$itemExp.click(function(){
-		tell($(this).data('clicked'))
-		if ($(this).data('clicked') == false) {
-			$(this).html('-');
-			$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
-			$(this).closest("li").siblings().find("[class^='item-expand']").html('+')
-			$(this).data('clicked',true);
-			tell('now it is ' + $(this).data('clicked'));
-		} else {
-			$(this).html('+');
-			$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
-			$(this).closest("li").siblings().find("[class^='item-expand']").data('clicked',true).find("[class^='nav-submenu']").slideToggle();
-			$(this).data('clicked',false)
-			tell('but now it is ' + $(this).data('clicked'))
-		}
-		
-
-
-    	//$(this).closest("li").siblings().find("[class^='nav-submenu']").css({'display':'none'});
-    	//$(this).closest("li").siblings().find("[class^='item-expand']").html($(this).text() == '+' ? '-' : '+')
-    });
-}
-
-function navToggle(){
-	var $itemExp = $('#mobile-nav .navmenu li .item-expand');
-	$itemExp.data('clicked',false);
-	$itemExp.click(function(){
-		//always toggle clicked element on or off
-    	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
-    	//always change clicked element to opposite -/+
-    	$(this).html($(this).text() == '-' ? '+' : '-');
-    	//if another menu is open, slideToggle it and switch - to +
-    });
-}
-*/
-
-$(document).ready(function(){
-	randomVid();
-	//hide content below video
-	$(window).on('load',function(){
-		$('.hide-load').css({'opacity':'1','visibility':'visible'});
-	});
-    $('.menubtn').click(function(e){
-		e.preventDefault();
-    	$('#nav, #mobile-nav').toggleClass('active');
-    	$('.menubtn').toggleClass('menu-on');
-    });
-    $('#nav .navmenu li').hover(function(){
-    	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
-    });
-    //navMenuItemToggle();
-    //navToggle();
-    $('#mobile-nav .navmenu li .item-expand').click(function(){
+function mobileNavToggle(){
+	$('#mobile-nav .navmenu li .item-expand').click(function(){
     	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
     	$(this).html($(this).text() == '-' ? '+' : '-');
     	$(this).closest("li").siblings().find("[class^='nav-submenu']").css({'display':'none'});
     	$(this).closest("li").siblings().find("[class^='item-expand']").html($(this).text() == '+' ? '-' : '+')
     });
-    $(window).scroll(function(){
+}
+
+function scrollRules(){
+	$(window).scroll(function(){
 		var $logo = $('#logo')
 		var videoEnd = $video.height() + $video.position().top - $logo.height() - 21;
 		var scrollPos = $(window).scrollTop();
@@ -86,6 +34,43 @@ $(document).ready(function(){
 			$('hr').css({'border-top':'2px dashed rgba(255,255,255,.5)'})
 		}
 	});
+}
+
+function menuBarSwitch(){
+	$(window).scroll(function(){
+		var $origNav = $('#nav');
+		var navWidth = $origNav.outerWidth();
+		var $social = $('div.social');
+		var socialBottom = $social.offset().top + $social.outerHeight();
+		var $vidHeight = $('.vid-container').height();
+		if (socialBottom > $vidHeight) {
+			$origNav.animate({
+				left: "+="+navWidth,
+
+			});
+		}
+	});
+}
+
+$(document).ready(function(){
+	randomVid();
+	//hide content below video
+	$(window).on('load',function(){
+		$('.hide-load').css({'opacity':'1','visibility':'visible'});
+	});
+	//toggle navmenu on click
+    $('.menubtn').click(function(e){
+		e.preventDefault();
+    	$('#nav, #mobile-nav').toggleClass('active');
+    	$('.menubtn').toggleClass('menu-on');
+    });
+    //expand navsubmenu on hover
+    $('#nav .navmenu li').hover(function(){
+    	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
+    });
+    mobileNavToggle();
+    //scrollRules();
+    menuBarSwitch();
 	$('#carousel-stories').on('slid.bs.carousel', function(){
 		var actionText = $('.carousel-inner .active img').data('action');
 		tell(actionText)
