@@ -1,3 +1,5 @@
+var $logo = $('#logo')
+
 function tell(item){
 	console.log(item);
 }
@@ -16,9 +18,12 @@ function mobileNavToggle(){
     });
 }
 
+/**
+*
+* Not in Use
+*
 function scrollRules(){
 	$(window).scroll(function(){
-		var $logo = $('#logo')
 		var videoEnd = $video.height() + $video.position().top - $logo.height() - 21;
 		var scrollPos = $(window).scrollTop();
 		var hrPos = $video.height() + $video.position().top - $('hr').position().top - 15;
@@ -35,19 +40,27 @@ function scrollRules(){
 		}
 	});
 }
+*/
 
 function menuBarSwitch(){
-	$(window).scroll(function(){
+	$(window).on('scroll click', function(){
 		var $origNav = $('#nav');
+		var $moveNav = $('.nav li, .nav div, .nav hr')
 		var navWidth = $origNav.outerWidth();
 		var $social = $('div.social');
 		var socialBottom = $social.offset().top + $social.outerHeight();
 		var $vidHeight = $('.vid-container').height();
-		if (socialBottom > $vidHeight) {
-			$origNav.animate({
-				left: "+="+navWidth,
-
-			});
+		var $topNav	= $('.topnav')
+		if (!$('.menubtn').hasClass('menu-on')) {
+			if (socialBottom > $vidHeight) {
+				$moveNav.addClass('slid-right');
+				$logo.addClass('small-logo');
+				$topNav.delay(4000).removeClass('hide-topnav');
+			} else if (socialBottom < $vidHeight) {
+				$moveNav.removeClass('slid-right');
+				$logo.removeClass('small-logo');
+				$topNav.addClass('hide-topnav');
+			}
 		}
 	});
 }

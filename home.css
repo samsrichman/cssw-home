@@ -42,17 +42,27 @@ nav{
 	position: fixed;
 	left:0px;
 	top:0px;
-	z-index: 10;
+	z-index: 80;
 	padding:0px;
 	margin:25px;
 	transition: .2s;
 
 }
+.small-logo {
+	width:300px !important;
+	margin: 12px 25px !important;
+}
 
-/* Add background to logo after scroll */
+
+
+/* Add background to logo after scroll 
+*
+* NOT IN USE 
+*
 .logo-bg {
 	background: rgba(0,103,172,.5);
 }
+*/
 
 #nav {
 	display:inline;
@@ -82,6 +92,17 @@ li {
 	height: 75px;
 	transition: .4s;
 }
+
+.nav li, .nav div, .nav hr{
+	position:relative;
+	left:0px;
+	transition: .4s;
+}
+.slid-right{
+	position:relative;
+	left:200px !important;
+}
+
 
 /*Temp fix - adjust height of twoline main button text*/
 li.twoline{
@@ -195,6 +216,47 @@ hr{
 	border-top:2px dashed rgba(255,255,255,.5);
 	transition: .2s
 }
+
+/* Top navigation that slides down on scroll */
+.topnav{
+	display:inline-block;
+	text-align: right;
+	font-weight: normal;
+	width:100%;
+	position:fixed;
+	padding:0px 0px;
+	transition: .4s;
+	top:0;
+	z-index: 60;
+	background:rgba(0,103,172,.95);
+	transition: top .4s;
+}
+
+.hide-topnav{
+	top:-100px;
+	display:none;
+	transition: .4s;
+}
+
+.topnav li {
+	display:inline;
+	background: none;
+	padding:20px 35px;
+	border:0px;
+	outline:0px;
+	margin:0px;
+	line-height: 60px;
+}
+.topnav li:hover{
+	color:#B9E0F7;
+	background:#005892;
+}
+.topnav a:hover{
+	background:none;
+}
+
+/* END TOP NAV
+*/
 
 /*reveal nav menu*/
 .active {
