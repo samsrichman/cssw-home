@@ -436,12 +436,14 @@ padding:50px 250px;
 	margin:75px auto;
 	overflow: hidden;
 }
-.carousel-inner a{
-	max-height:500px;
-	width:auto;
+.carousel-inner a {
 }
 .carousel img{
-	width:100%;
+	position:relative;
+	min-width:200%;
+	right:50%;
+	min-height:auto;
+	overflow: hidden;
 	-webkit-filter:brightness(75%);
 	filter:brightness(75%);
 }
@@ -453,30 +455,41 @@ padding:50px 250px;
 	border:0px;
 }
 .carousel-indicators li{
-	height: 12px;
-	width:	12px;
-	margin:0px;
+	height: 15px;
+	width:	15px;
+	margin:0px 5px;
 	padding:0px;
 	border-radius: 50%;
 }
+.carousel-indicators .active{
+	height:15px;
+	width:15px;
+	margin:0px 5px;
+}
 .carousel-title{
 	position:absolute;
-	top:20px;
+	top:10%;
+	padding:0px;
 	color:white;
-	font-size: 30px;
+	font-size: 28px;
+	line-height: 32px;
 	font-weight: bold;
 }
 .carousel-title a {
 	color:white;
 }
 
+.carousel-title, .carousel-caption {
+	left:3%;
+	right:3%;
+	}
 
 .carousel-caption {
 	position:absolute;
 	bottom:0px;
 	display:none;
 	text-align: left;
-	margin:0px auto 42px;
+	margin:0px auto 45px;
 	padding:15px;
 	text-shadow: none;
 	background:rgba(0,103,172,.5);
@@ -511,11 +524,7 @@ padding:50px 250px;
 
 }
 
-.carousel-title, .carousel-caption {
-	left:10%;
-	right:10%;
-	padding:15px;
-}
+
 
 /*.carousel-caption a{
 	display:table;
@@ -526,12 +535,53 @@ padding:50px 250px;
 	padding:10px;
 }*/
 @media screen and (min-width: 768px) {
-.carousel-caption {
-	display:inline;
-	font-size:16px;
-
-}
-.carousel-title{
-	font-size: 36px;
+	.carousel-caption {
+		display:inline;
+		font-size:16px;
+		padding:15px;
+	}
+	.carousel-title{
+		top:20px;
+		font-size: 36px;
+		padding:15px;
+		line-height: initial;
+	}
+	.carousel-title, .carousel-caption {
+	left:10%;
+	right:10%;
+	}
+	.carousel-inner a{
+		max-height:500px;
+		width:auto;
+	}
+	.carousel-inner a{
+		min-height:200px;
+		width:auto;
+	}
+	.carousel img{
+		width:100%;
+		min-width:100%;
+		right:0px;
+		-webkit-filter:brightness(75%);
+		filter:brightness(75%);
+	}
+	.carousel-indicators {
+		bottom:0px;
+		left:0px;
+		right:0px;
+		margin:0px auto 10px;
+		border:0px;
+	}
+	.carousel-indicators li{
+		height: 15px;
+		width:	15px;
+		margin:0px 5px;
+		padding:0px;
+		border-radius: 50%;
+	}
+	.carousel-indicators .active{
+		height:15px;
+		width:15px;
+		margin:0px 5px;
 	}
 }
