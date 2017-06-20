@@ -46,6 +46,17 @@ nav{
 	padding:0px;
 	margin:25px;
 	transition: .2s;
+}
+.learn-more{
+	background: rgba(0,103,172,.5);
+	color:white;
+	border:none;
+	outline:none;
+	padding:0px;
+	border-radius:5%;
+}
+.learn-more:hover, .learn-more:focus{
+	background: rgba(0,103,172,.9);
 
 }
 .small-logo {
@@ -139,7 +150,7 @@ ul.navmenu {
 }
 
 /*link styling*/
-a ul li, a:hover, a:focus{
+a ul li, a:hover, a:focus {
 	color:white;
 	text-decoration: none;
 	background: rgba(0,103,172,.9);
@@ -241,18 +252,26 @@ hr{
 .topnav li {
 	display:inline;
 	background: none;
-	padding:20px 35px;
+	padding:20px 25px;
 	border:0px;
 	outline:0px;
 	margin:0px;
 	line-height: 60px;
 }
-.topnav li:hover{
+
+.topnav li:hover, topnav li:focus{
 	color:#B9E0F7;
 	background:#005892;
 }
-.topnav a:hover{
+.topnav a:hover, .topnav a:focus{
 	background:none;
+}
+.menubtn-top{
+	margin-right:25px !important;
+}
+.menu-top-on {
+	color:#B9E0F7 !important;
+	background:#005892 !important;
 }
 
 /* END TOP NAV
@@ -299,11 +318,22 @@ hr{
 	float:left;
 }
 
-.container-fluid {
+#welcome{
+	margin-top:50px;
+}
+.news{
+	background:#eee;width:100%;padding:50px 15px;margin:50px auto 0px;
+}
+footer{
+	background:rgba(0,103,172,.95);
+	color:white;
+}
+
+/*.container-fluid {
 margin:auto;
 padding:50px 250px;
 }
-
+*/
 @media screen and (max-width: 768px) {
 	video {
 	position: relative;
@@ -406,12 +436,21 @@ padding:50px 250px;
 	margin:75px auto;
 	overflow: hidden;
 }
-.carousel-inner{
-	min-height:500px;
+.carousel-inner a{
+	max-height:500px;
 	width:auto;
 }
 .carousel img{
-	width:100%
+	width:100%;
+	-webkit-filter:brightness(75%);
+	filter:brightness(75%);
+}
+.carousel-indicators {
+	bottom:0px;
+	left:0px;
+	right:0px;
+	margin:0px auto 10px;
+	border:0px;
 }
 .carousel-indicators li{
 	height: 12px;
@@ -420,40 +459,77 @@ padding:50px 250px;
 	padding:0px;
 	border-radius: 50%;
 }
-
 .carousel-title{
 	position:absolute;
 	top:20px;
-	margin-right: 30%;
 	color:white;
-	font-size: 16px;
+	font-size: 30px;
 	font-weight: bold;
-	text-shadow: 0 1px 2px rgba(0,0,0,.9);
 }
-.carousel-caption {
-	display:none;
-	text-align: left;
-	margin-right:15%;
-	bottom:20px;
-	text-shadow: 1px 1px 5px rgba(0,0,0,.9);
-}
-.carousel-title, .carousel-caption {
-	left:10%;
+.carousel-title a {
+	color:white;
 }
 
-.carousel-caption a{
+
+.carousel-caption {
+	position:absolute;
+	bottom:0px;
+	display:none;
+	text-align: left;
+	margin:0px auto 42px;
+	padding:15px;
+	text-shadow: none;
+	background:rgba(0,103,172,.5);
+}
+.carousel p {
+	margin:0px;
+}
+.carousel-caption a {
+	color:white;
+	font-weight: bold;
+	transition:margin .2s;
+
+}
+
+.carousel-caption a:hover, .carousel-caption a:focus{
+	color:#B9E0F7;
+	background:none;
+	cursor:pointer;
+	margin-left: 10px;
+}
+
+.carousel-caption a::after {
+	content: ' \00BB';
+	color:white;
+	margin-left: 0px;
+	transition:.2s;
+}
+
+.carousel-caption a:hover::after {
+	margin-left: 5px;
+		color:#B9E0F7;
+
+}
+
+.carousel-title, .carousel-caption {
+	left:10%;
+	right:10%;
+	padding:15px;
+}
+
+/*.carousel-caption a{
 	display:table;
 	background:rgba(0,103,172,.5);
 	color:white;
 	font-weight:bold;
 	text-shadow: none;
 	padding:10px;
-}
+}*/
 @media screen and (min-width: 768px) {
 .carousel-caption {
 	display:inline;
-	font-size:18px;
-	margin-right:30%;
+	font-size:16px;
+
 }
 .carousel-title{
 	font-size: 36px;

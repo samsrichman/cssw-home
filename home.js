@@ -17,6 +17,19 @@ function mobileNavToggle(){
     	$(this).closest("li").siblings().find("[class^='item-expand']").html($(this).text() == '+' ? '-' : '+')
     });
 }
+function navMenuAppear(){
+    $('.menubtn').click(function(e){
+		e.preventDefault();
+    	$('#nav, #mobile-nav').toggleClass('active');
+    	$(this).toggleClass('menu-on');
+    });
+    $('.menubtn-top').click(function(e){
+    	e.preventDefault();
+    	$('.topnav .navmenu').toggleClass('active')
+    	$(this).toggleClass('menu-top-on')
+    });
+}
+
 
 /**
 *
@@ -43,7 +56,7 @@ function scrollRules(){
 */
 
 function menuBarSwitch(){
-	$(window).on('scroll click', function(){
+	$(window).on('resize scroll click', function(){
 		var $origNav = $('#nav');
 		var $moveNav = $('.nav li, .nav div, .nav hr')
 		var navWidth = $origNav.outerWidth();
@@ -55,13 +68,29 @@ function menuBarSwitch(){
 			if (socialBottom > $vidHeight) {
 				$moveNav.addClass('slid-right');
 				$logo.addClass('small-logo');
-				$topNav.delay(4000).removeClass('hide-topnav');
+				$topNav.removeClass('hide-topnav');
 			} else if (socialBottom < $vidHeight) {
 				$moveNav.removeClass('slid-right');
 				$logo.removeClass('small-logo');
 				$topNav.addClass('hide-topnav');
 			}
 		}
+	});
+}
+
+function caroActionText() {
+	$(window).on('load', function(){
+		var actionText = $('.carousel-inner .active img').data('action');
+		var actionLink = $('.carousel-inner .active img').data('page');
+		$('.carousel-title a').text(actionText);
+		$('.carousel-caption a, .item a, .carousel-title a').attr('href',actionLink);
+	});
+	$('#carousel-stories').on('slid.bs.carousel', function(){
+		var actionText = $('.carousel-inner .active img').data('action');
+		var actionLink = $('.carousel-inner .active img').data('page');
+		$('.carousel-title a').text(actionText);
+		$('.carousel-caption a, .item a, .carousel-title a').attr('href',actionLink);
+
 	});
 }
 
@@ -72,11 +101,7 @@ $(document).ready(function(){
 		$('.hide-load').css({'opacity':'1','visibility':'visible'});
 	});
 	//toggle navmenu on click
-    $('.menubtn').click(function(e){
-		e.preventDefault();
-    	$('#nav, #mobile-nav').toggleClass('active');
-    	$('.menubtn').toggleClass('menu-on');
-    });
+	navMenuAppear();
     //expand navsubmenu on hover
     $('#nav .navmenu li').hover(function(){
     	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
@@ -84,11 +109,7 @@ $(document).ready(function(){
     mobileNavToggle();
     //scrollRules();
     menuBarSwitch();
-	$('#carousel-stories').on('slid.bs.carousel', function(){
-		var actionText = $('.carousel-inner .active img').data('action');
-		tell(actionText)
-		$('.carousel-title span').text(actionText + '?')
-	});
+	caroActionText();
 });
 
 
