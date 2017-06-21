@@ -162,6 +162,25 @@ a{
 }
 
 /* Style all font awesome icons */
+.fa{
+	transition: padding .2s;
+	padding:0px;
+}
+.fa:hover{
+	padding:0px 10px;
+	background: none;
+	color:#86B2D8;
+}
+.fa-instagram  {
+	color:#cd486b;
+}
+.fa-twitter {
+	color:#0084b4;
+}
+.fa-youtube-play {
+	color:#bb0000;
+}
+
 .social {
 	text-align: center;
 	margin: auto;
@@ -179,8 +198,11 @@ a{
 
 /* Add a hover effect */
 .social .fa:hover {
+	padding:10px;
     background:rgba(0,103,172,.9);
 }
+
+
 
 /*highlight hovered items in navmenu*/
 li:hover, li:focus, .menu-on {
@@ -332,26 +354,26 @@ hr{
 #welcome{
 	margin-top:50px;
 }
-.container-fluid a{
+.container-fluid a:not(.fa){
 	color:rgba(0,103,172,.95);
 	padding:0px;
 	white-space: pre;
 	transition: padding .2s;
 }
 
-.container-fluid a::after {
+.container-fluid a:not(.fa)::after {
 	content: ' \00BB';
 	margin-left: 0px;
 	transition: margin .2s;
 }
 
-.container-fluid a:hover{
+.container-fluid a:not(.fa):hover{
 	color:white;
 	padding:0px 5px;
 	background:rgba(0,103,172,.95);
 }
 
-.container-fluid a:hover::after{
+.container-fluid a:not(.fa):hover::after{
 	margin-left: 5px;
 }
 
@@ -361,6 +383,16 @@ hr{
 .news img {
 	width:100%;
 }
+
+
+.social-img {
+	max-height:200px;
+	width:100%;
+	overflow-y:hidden; 
+	margin-bottom: 10px;
+}
+
+
 footer{
 	background:rgba(0,103,172,.95);
 	color:white;
@@ -432,7 +464,7 @@ padding:50px 250px;
 	.social{
 		max-width:100px;
 	}
-	.fa {
+	.social .fa {
 		padding: 8px;
 		font-size: 12px;
 		display:inline-block;
