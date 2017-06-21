@@ -98,7 +98,7 @@ $(document).ready(function(){
 	randomVid();
 	//hide content below video
 	$(window).on('load',function(){
-		$('.hide-load').css({'opacity':'1','visibility':'visible'});
+		$('.below-fold').css({'opacity':'1','visibility':'visible'});
 	});
 	//toggle navmenu on click
 	navMenuAppear();

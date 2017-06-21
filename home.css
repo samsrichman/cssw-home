@@ -1,6 +1,5 @@
 body {
 	font-family: 'Raleway', sans-serif;
-	letter-spacing: 1px;
 	font-size: 16px;
 	overflow-x: hidden;
 	height:100%;
@@ -10,6 +9,7 @@ body {
 }
 
 nav{
+	letter-spacing: 1px;
 	text-transform: uppercase;
 	font-weight: bold;
 }
@@ -289,7 +289,7 @@ hr{
 }
 
 /* Hide post-video content until page loaded */
-.hide-load {
+.below-fold {
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 1s;
@@ -323,11 +323,41 @@ hr{
 	float:left;
 }
 
+/*
+*
+* Below the fold
+*
+*/
+
 #welcome{
 	margin-top:50px;
 }
+.container-fluid a{
+	padding:0px;
+	white-space: pre;
+	transition: padding .2s;
+}
+
+.container-fluid a::after {
+	content: ' \00BB';
+	margin-left: 0px;
+	transition: margin .2s;
+}
+
+.container-fluid a:hover{
+	padding:0px 5px;
+	background:rgba(0,103,172,.9);
+}
+
+.container-fluid a:hover::after{
+	margin-left: 5px;
+}
+
 .news{
 	background:#eee;width:100%;padding:50px 15px;margin:50px auto 0px;
+}
+.news img {
+	width:100%;
 }
 footer{
 	background:rgba(0,103,172,.95);
@@ -524,7 +554,7 @@ padding:50px 250px;
 	color:#B9E0F7;
 	background:none;
 	cursor:pointer;
-	margin-left: 10px;
+	margin-left: 5px;
 }
 
 .carousel-caption a::after {
