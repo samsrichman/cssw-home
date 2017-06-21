@@ -537,6 +537,7 @@ padding:50px 250px;
 	text-align: left;
 	margin:0px auto 45px;
 	padding:15px;
+	font-size:16px;
 	text-shadow: none;
 	background:rgba(0,103,172,.5);
 }
@@ -585,7 +586,7 @@ padding:50px 250px;
 @media screen and (min-width: 768px) {
 	.carousel-caption {
 		display:inline;
-		font-size:16px;
+		font-size: 18px;
 		padding:15px;
 	}
 	.carousel-title{
@@ -631,5 +632,14 @@ padding:50px 250px;
 		height:15px;
 		width:15px;
 		margin:0px 5px;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.carousel-title{
+		top:30px;
+		font-size: 60px;
+	}
+	.carousel-caption{
+		font-size: 24px;
 	}
 }
