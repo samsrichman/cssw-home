@@ -333,6 +333,7 @@ hr{
 	margin-top:50px;
 }
 .container-fluid a{
+	color:rgba(0,103,172,.95);
 	padding:0px;
 	white-space: pre;
 	transition: padding .2s;
@@ -345,8 +346,9 @@ hr{
 }
 
 .container-fluid a:hover{
+	color:white;
 	padding:0px 5px;
-	background:rgba(0,103,172,.9);
+	background:rgba(0,103,172,.95);
 }
 
 .container-fluid a:hover::after{
