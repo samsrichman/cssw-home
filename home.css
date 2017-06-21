@@ -154,6 +154,11 @@ a ul li, a:hover, a:focus {
 	color:white;
 	text-decoration: none;
 	background: rgba(0,103,172,.9);
+	cursor: pointer;
+}
+
+a{
+	cursor: pointer;
 }
 
 /* Style all font awesome icons */
@@ -436,8 +441,6 @@ padding:50px 250px;
 	margin:75px auto;
 	overflow: hidden;
 }
-.carousel-inner a {
-}
 .carousel img{
 	position:relative;
 	min-width:200%;
@@ -479,6 +482,17 @@ padding:50px 250px;
 	color:white;
 }
 
+.carousel-title span:hover {
+	background:rgba(0,103,172,.5);
+
+}
+.carousel-title a:hover{
+	background: none;
+}
+.carousel-title a:hover>span{
+	background:rgba(0,103,172,.5);
+}
+
 .carousel-title, .carousel-caption {
 	left:3%;
 	right:3%;
@@ -498,6 +512,8 @@ padding:50px 250px;
 	margin:0px;
 }
 .carousel-caption a {
+	white-space: pre;
+	height:initial;
 	color:white;
 	font-weight: bold;
 	transition:margin .2s;

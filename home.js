@@ -82,13 +82,13 @@ function caroActionText() {
 	$(window).on('load', function(){
 		var actionText = $('.carousel-inner .active img').data('action');
 		var actionLink = $('.carousel-inner .active img').data('page');
-		$('.carousel-title a').text(actionText);
+		$('.carousel-title span').html(actionText);
 		$('.carousel-caption a, .item a, .carousel-title a').attr('href',actionLink);
 	});
 	$('#carousel-stories').on('slid.bs.carousel', function(){
 		var actionText = $('.carousel-inner .active img').data('action');
 		var actionLink = $('.carousel-inner .active img').data('page');
-		$('.carousel-title a').text(actionText);
+		$('.carousel-title span').html(actionText);
 		$('.carousel-caption a, .item a, .carousel-title a').attr('href',actionLink);
 
 	});
