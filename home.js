@@ -17,19 +17,62 @@ function mobileNavToggle(){
     	$(this).closest("li").siblings().find("[class^='item-expand']").html($(this).text() == '+' ? '-' : '+')
     });
 }
-function navMenuAppear(){
+
+//also adds menu item expand buttons
+function navMenuAppearMobile(){
+	var slideAmount = ''
+	var isMobile = ''
+	$(window).resize(function(){
+		var screenWidth = $(window).width();
+		if (screenWidth < 768) {
+			slideAmount = screenWidth;
+			isMobile = true
+		} else {
+			slideAmount = 300
+			isMobile = false
+		}
+		if (isMobile) {
+			$('.item-expand').text('+')
+		} else {
+			$('.item-expand').empty()
+
+		}
+	}).resize();
     $('.menubtn').click(function(e){
 		e.preventDefault();
-    	$('#nav, #mobile-nav').toggleClass('active');
-    	$(this).toggleClass('menu-on');
-    });
-    $('.menubtn-top').click(function(e){
-    	e.preventDefault();
-    	$('.topnav .navmenu').toggleClass('active')
-    	$(this).toggleClass('menu-top-on')
-    });
-}
+    	$(this).toggleClass('menu-btn-on');
+    	if ($(this).hasClass('menu-btn-on')) {
+    		$('.nav, .navmenu').css({'right':'+='+slideAmount});
+    		$(window).resize(function(){
+    			if (isMobile) {
+    				$('.nav').css({'position':'fixed','right':'100%'})
+    			} else {
 
+    				$('.nav').css({'position':'fixed','right':'300px'})
+    			}
+    		});
+    	} else {
+    		$('.nav, .navmenu').removeAttr('style');
+    	}
+    });
+    $('.cancel').click(function(e){
+		e.preventDefault();
+		$('.menubtn').toggleClass('menu-btn-on')
+		if ($('.menubtn').hasClass('menu-btn-on')) {
+    		$('.nav, .navmenu').css({'right':'+='+slideAmount});
+    	} else {
+    		$('.nav, .navmenu').removeAttr('style');
+    	}
+    });
+   	$(document).click(function(e){
+	    if ( $(e.target).closest("nav").length) {
+	        return false;
+	    } else if ($('.menubtn').hasClass('menu-btn-on')) {
+	    	$('.menubtn').toggleClass('menu-btn-on')
+			$('.nav, .navmenu').removeAttr('style');
+		} 
+	});
+}
 
 /**
 *
@@ -55,25 +98,43 @@ function scrollRules(){
 }
 */
 
-function menuBarSwitch(){
+/*function menuBarSwitch2(){
 	$(window).on('resize scroll click', function(){
 		var $origNav = $('#nav');
 		var $moveNav = $('.nav li, .nav div, .nav hr')
 		var navWidth = $origNav.outerWidth();
-		var $social = $('div.social');
+		var $social = $('li.social');
 		var socialBottom = $social.offset().top + $social.outerHeight();
 		var $vidHeight = $('.vid-container').height();
 		var $topNav	= $('.topnav')
-		if (!$('.menubtn').hasClass('menu-on')) {
+		if (!$('.menubtn').hasClass('menu-btn-on')) {
 			if (socialBottom > $vidHeight) {
 				$moveNav.addClass('slid-right');
-				$logo.addClass('small-logo');
+				//$logo.addClass('small-logo');
 				$topNav.removeClass('hide-topnav');
 			} else if (socialBottom < $vidHeight) {
 				$moveNav.removeClass('slid-right');
-				$logo.removeClass('small-logo');
+				//$logo.removeClass('small-logo');
 				$topNav.addClass('hide-topnav');
 			}
+		}
+	});
+}*/
+
+function menuBarSwitch(){
+	var navPos = $('.vid-container').height() - $('.nav').outerHeight();
+	var $logo = $('#logo');
+	var $logoSm = $('#logo-sm')
+	$(window).on('resize scroll click', function(){
+		var scrollPos = $(window).scrollTop();
+		if (scrollPos < navPos) {
+			$('#navcss').attr("disabled", "disabled");
+			$logo.show();
+			$logoSm.hide();
+		} else if (scrollPos > navPos) {
+			$('#navcss').removeAttr('disabled');
+			$logo.hide();
+			$logoSm.show();
 		}
 	});
 }
@@ -94,22 +155,31 @@ function caroActionText() {
 	});
 }
 
+function learnMoreScroll() {
+	$('.learn-more').click(function(){
+		$('html, body').animate({
+               scrollTop: $('.below-fold').position().top - 66
+          }, 800);
+	});
+}
+
 $(document).ready(function(){
 	randomVid();
 	//hide content below video
 	$(window).on('load',function(){
-		$('.below-fold').css({'opacity':'1','visibility':'visible'});
+		$('.below-fold').fadeIn(10);
 	});
 	//toggle navmenu on click
-	navMenuAppear();
+	navMenuAppearMobile();
     //expand navsubmenu on hover
-    $('#nav .navmenu li').hover(function(){
+    $('.navmenu li').hover(function(){
     	$(this).closest("li").find("[class^='nav-submenu']").slideToggle();
     });
     mobileNavToggle();
     //scrollRules();
     menuBarSwitch();
 	caroActionText();
+	learnMoreScroll();
 });
 
 
