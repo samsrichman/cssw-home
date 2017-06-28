@@ -177,7 +177,7 @@ hr{
 	min-height:100%;
 	background: rgba(0,103,172,1);
 	transition: .4s;
-	z-index: 100 !important;
+	z-index: 300 !important;
 }
 
 .navmenu li {
